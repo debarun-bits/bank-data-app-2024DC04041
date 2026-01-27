@@ -101,6 +101,7 @@ bank-data-app-2024DC04041/
 ├── model/
 │   ├── train_models.py
 │   └── saved_models_2024DC04041.pkl
+│   └── eda.ipynb
 ```
 
 ---
