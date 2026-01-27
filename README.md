@@ -56,31 +56,33 @@ This project uses the **Bank Marketing dataset**, which is publicly available an
 Six machine learning models were trained and evaluated using the same preprocessing pipeline and train–test split.
 
 ### Model Performance Comparison
-| ML Model | Accuracy | AUC | Precision | Recall | F1 Score | MCC |
-|---------|----------|-----|-----------|--------|----------|-----|
-| Logistic Regression | 0.90 | 0.91 | 0.65 | 0.35 | 0.45 | 0.43 |
-| Decision Tree | 0.88 | 0.71 | 0.48 | 0.50 | 0.49 | 0.42 |
-| kNN | 0.90 | 0.84 | 0.59 | 0.36 | 0.44 | 0.41 |
-| Naive Bayes | 0.86 | 0.81 | 0.43 | 0.49 | 0.46 | 0.38 |
-| Random Forest (Ensemble) | 0.90 | 0.93 | 0.66 | 0.39 | 0.49 | 0.46 |
-| XGBoost (Ensemble) | 0.91 | 0.93 | 0.63 | 0.50 | 0.56 | 0.51 |
+| ML Model                 | Accuracy | AUC   | Precision | Recall | F1 Score | MCC   |
+| ------------------------ | -------- | ----- | --------- | ------ | -------- | ----- |
+| Logistic Regression      | 0.846    | 0.908 | 0.419     | 0.814  | 0.553    | 0.509 |
+| Decision Tree            | 0.875    | 0.688 | 0.464     | 0.443  | 0.453    | 0.383 |
+| kNN                      | 0.896    | 0.839 | 0.591     | 0.360  | 0.447    | 0.408 |
+| Naive Bayes              | 0.864    | 0.809 | 0.428     | 0.488  | 0.456    | 0.380 |
+| Random Forest (Ensemble) | 0.906    | 0.929 | 0.702     | 0.340  | 0.458    | 0.446 |
+| XGBoost (Ensemble)       | 0.874    | 0.926 | 0.477     | 0.802  | 0.598    | 0.554 |
+
 
 ---
 
 ## 4. Observations on Model Performance
-| Model | Observation |
-|------|-------------|
-| Logistic Regression | Strong accuracy and AUC, but low recall indicating difficulty in identifying all positive subscription cases. |
-| Decision Tree | Balanced precision and recall but lower AUC, suggesting limited generalization. |
-| kNN | Comparable accuracy to Logistic Regression but weaker recall and F1 score. |
-| Naive Bayes | Higher recall but lower precision, resulting in more false positives. |
-| Random Forest | Improved robustness and class separation over individual models. |
-| XGBoost | Best overall performance with highest AUC, F1 score, and MCC. |
+| Model               | Observation                                                                                                                                                    |
+| ------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Logistic Regression | Significant improvement in recall due to class balancing, making it effective at identifying potential subscribers, though precision is moderate.              |
+| Decision Tree       | Shows stable but limited performance; lower AUC and MCC indicate weaker class separation compared to other models.                                             |
+| kNN                 | Maintains good accuracy but struggles with recall, indicating difficulty capturing minority class patterns.                                                    |
+| Naive Bayes         | Provides a balance between precision and recall but does not excel in overall class discrimination.                                                            |
+| Random Forest       | Strong precision but lower recall suggests it remains conservative in predicting the positive class.                                                           |
+| XGBoost             | Best overall performer with highest F1 score, MCC, and strong AUC, demonstrating superior ability to handle class imbalance and capture complex relationships. |
+
 
 ---
 
 ## 5. Conclusion
-Ensemble methods—particularly **XGBoost**—outperform individual classifiers for the Bank Marketing dataset by effectively capturing non-linear relationships and feature interactions. While Logistic Regression provides a strong baseline, advanced ensemble techniques deliver superior performance when evaluated using AUC, F1 score, and MCC.
+After applying class balancing techniques, the models became more effective at identifying the minority class (customers likely to subscribe). Ensemble methods—particularly XGBoost—deliver the best overall performance by achieving the strongest balance between recall and precision while maintaining high AUC and MCC. This makes **XGBoost** the most suitable model for the Bank Marketing problem, where minimizing missed potential subscribers is more critical than reducing additional marketing calls.
 
 ---
 
